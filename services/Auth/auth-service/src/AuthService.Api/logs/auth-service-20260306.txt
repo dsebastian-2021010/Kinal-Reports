@@ -1,0 +1,58 @@
+[2026-03-06 19:42:07 INF] Verificando conexión a la base de datos... {"SourceContext":"Program"}
+[2026-03-06 19:42:09 INF] Base de datos lista. Ejecutando datos semilla... {"SourceContext":"Program"}
+[2026-03-06 19:42:10 INF] Inicialización de base de datos completada exitosamente {"SourceContext":"Program"}
+[2026-03-06 19:42:10 INF] API de AuthService está ejecutándose en http://localhost:5092. Endpoint de salud: http://localhost:5092/api/v1/health {"SourceContext":"Program"}
+[2026-03-06 19:42:31 INF] Verificando conexión a la base de datos... {"SourceContext":"Program"}
+[2026-03-06 19:42:32 INF] Base de datos lista. Ejecutando datos semilla... {"SourceContext":"Program"}
+[2026-03-06 19:42:32 INF] Inicialización de base de datos completada exitosamente {"SourceContext":"Program"}
+[2026-03-06 19:42:32 INF] API de AuthService está ejecutándose en http://localhost:5092. Endpoint de salud: http://localhost:5092/api/v1/health {"SourceContext":"Program"}
+[2026-03-06 19:45:01 INF] Verificando conexión a la base de datos... {"SourceContext":"Program"}
+[2026-03-06 19:45:01 INF] Base de datos lista. Ejecutando datos semilla... {"SourceContext":"Program"}
+[2026-03-06 19:45:02 INF] Inicialización de base de datos completada exitosamente {"SourceContext":"Program"}
+[2026-03-06 19:45:02 INF] API de AuthService está ejecutándose en http://localhost:5092. Endpoint de salud: http://localhost:5092/api/v1/health {"SourceContext":"Program"}
+[2026-03-06 21:06:25 ERR] Failed executing DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id; {"EventId":{"Id":20102,"Name":"Microsoft.EntityFrameworkCore.Database.Command.CommandError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Command"}
+[2026-03-06 21:06:25 ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE roles (
+    id character varying(16) NOT NULL,
+    name character varying(35) NOT NULL,
+    created_at timestamp with time zone NOT NULL,
+    updated_at timestamp with time zone NOT NULL,
+    CONSTRAINT pk_roles PRIMARY KEY (id)
+); {"EventId":{"Id":20102,"Name":"Microsoft.EntityFrameworkCore.Database.Command.CommandError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Command"}
+[2026-03-06 21:07:13 ERR] Failed executing DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM "__EFMigrationsHistory"
+ORDER BY migration_id; {"EventId":{"Id":20102,"Name":"Microsoft.EntityFrameworkCore.Database.Command.CommandError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Command"}
+[2026-03-06 21:09:02 INF] Verificando conexión a la base de datos... {"SourceContext":"Program"}
+[2026-03-06 21:09:03 INF] Base de datos lista. Ejecutando datos semilla... {"SourceContext":"Program"}
+[2026-03-06 21:09:05 INF] Inicialización de base de datos completada exitosamente {"SourceContext":"Program"}
+[2026-03-06 21:09:05 INF] API de AuthService está ejecutándose en http://localhost:5092. Endpoint de salud: http://localhost:5092/api/v1/health {"SourceContext":"Program"}
+[2026-03-06 21:14:26 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:26 INF] User ecatalan registered successfully {"EventId":{"Id":1001,"Name":"LogUserRegistered"},"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"84ac25fd-e30e-4453-823a-ee740cd33973","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:27 INF] HTTP POST /api/v1/auth/register responded 201 in 988.7348 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UM:00000001","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:27 WRN] Validación de certificados SSL deshabilitada. Solo usar en desarrollo. {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"84ac25fd-e30e-4453-823a-ee740cd33973","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:29 INF] Email enviado exitosamente {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"84ac25fd-e30e-4453-823a-ee740cd33973","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:29 INF] Pipeline de email completado {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"84ac25fd-e30e-4453-823a-ee740cd33973","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:29 INF] Email processed {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"84ac25fd-e30e-4453-823a-ee740cd33973","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:14:29 INF] Email de verificación enviado {"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"84ac25fd-e30e-4453-823a-ee740cd33973","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNJRUUHL69UM:00000001","RequestPath":"/api/v1/auth/register","ConnectionId":"0HNJRUUHL69UM"}
+[2026-03-06 21:17:34 WRN] Validación de certificados SSL deshabilitada. Solo usar en desarrollo. {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"39a33078-3335-49ce-b967-33d154cb4116","ActionName":"AuthService.Api.Controllers.AuthController.VerifyEmail (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000001","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:36 INF] Email enviado exitosamente {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"39a33078-3335-49ce-b967-33d154cb4116","ActionName":"AuthService.Api.Controllers.AuthController.VerifyEmail (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000001","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:36 INF] Pipeline de email completado {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"39a33078-3335-49ce-b967-33d154cb4116","ActionName":"AuthService.Api.Controllers.AuthController.VerifyEmail (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000001","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:36 INF] Email processed {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"39a33078-3335-49ce-b967-33d154cb4116","ActionName":"AuthService.Api.Controllers.AuthController.VerifyEmail (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000001","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:36 INF] Email verified successfully for user ecatalan {"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"39a33078-3335-49ce-b967-33d154cb4116","ActionName":"AuthService.Api.Controllers.AuthController.VerifyEmail (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000001","RequestPath":"/api/v1/auth/verify-email","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:36 INF] HTTP POST /api/v1/auth/verify-email responded 200 in 1816.2695 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UO:00000001","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:52 INF] User login succeeded {"EventId":{"Id":1002,"Name":"LogUserLoggedIn"},"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"33318184-b125-4961-bdf3-272764224578","ActionName":"AuthService.Api.Controllers.AuthController.Login (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000002","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:17:52 INF] HTTP POST /api/v1/auth/login responded 200 in 393.5288 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UO:00000002","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:18:30 INF] User login succeeded {"EventId":{"Id":1002,"Name":"LogUserLoggedIn"},"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"33318184-b125-4961-bdf3-272764224578","ActionName":"AuthService.Api.Controllers.AuthController.Login (AuthService.Api)","RequestId":"0HNJRUUHL69UO:00000003","RequestPath":"/api/v1/auth/login","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:18:30 INF] HTTP POST /api/v1/auth/login responded 200 in 67.9561 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UO:00000003","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:19:15 INF] HTTP PATCH /api/v1/user/usr_G94yrJ9TWSD1/role responded 200 in 69.2158 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UO:00000004","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:19:40 INF] HTTP PATCH /api/v1/user/usr_G94yrJ9TWSD1/role responded 200 in 34.0957 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UO:00000005","ConnectionId":"0HNJRUUHL69UO"}
+[2026-03-06 21:21:21 INF] HTTP PATCH /api/v1/user/usr_G94yrJ9TWSD1/role responded 200 in 24.8335 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UQ:00000001","ConnectionId":"0HNJRUUHL69UQ"}
+[2026-03-06 21:21:28 INF] HTTP PATCH /api/v1/user/usr_G94yrJ9TWSD1/role responded 200 in 14.0468 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJRUUHL69UQ:00000002","ConnectionId":"0HNJRUUHL69UQ"}
+[2026-03-06 21:34:53 INF] Verificando conexión a la base de datos... {"SourceContext":"Program"}
+[2026-03-06 21:34:53 INF] Base de datos lista. Ejecutando datos semilla... {"SourceContext":"Program"}
+[2026-03-06 21:34:54 INF] Inicialización de base de datos completada exitosamente {"SourceContext":"Program"}
+[2026-03-06 21:34:54 INF] API de AuthService está ejecutándose en http://localhost:5092. Endpoint de salud: http://localhost:5092/api/v1/health {"SourceContext":"Program"}
