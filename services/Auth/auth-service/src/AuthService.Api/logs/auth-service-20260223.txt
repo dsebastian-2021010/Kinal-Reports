@@ -1,0 +1,6 @@
+[2026-02-23 09:06:16 INF] Verificando conexión a la base de datos... {"SourceContext":"Program"}
+[2026-02-23 09:06:16 INF] Base de datos lista. Ejecutando datos semilla... {"SourceContext":"Program"}
+[2026-02-23 09:06:17 INF] Inicialización de base de datos completada exitosamente {"SourceContext":"Program"}
+[2026-02-23 09:06:17 INF] API de AuthService está ejecutándose en http://localhost:5092. Endpoint de salud: http://localhost:5092/api/v1/health {"SourceContext":"Program"}
+[2026-02-23 09:06:31 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNJITKGDUN9H:00000001","RequestPath":"/api/v1/health","ConnectionId":"0HNJITKGDUN9H"}
+[2026-02-23 09:06:31 INF] HTTP GET /api/v1/health responded 200 in 128.5312 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNJITKGDUN9H:00000001","ConnectionId":"0HNJITKGDUN9H"}
