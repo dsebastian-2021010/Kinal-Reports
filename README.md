@@ -408,6 +408,43 @@ Permite la comunicación directa entre estudiantes y profesores dentro de la pla
 Este servicio facilita consultas rápidas sin necesidad de utilizar correo electrónico.
 
 
+Auth Service
+
+
+Servicio de autenticación y autorización desarrollado en .NET 8 (ASP.NET Core) que centraliza la gestión de usuarios y seguridad.
+
+**Tecnología:** .NET 8, PostgreSQL
+
+**Funcionalidades principales:**
+
+ - Registro y login de usuarios con validación de email
+
+ - Gestión de roles y permisos (ALUMNO, PROFESOR, ADMINISTRADOR)
+
+ - Tokens JWT para autenticación segura (30 minutos de validez)
+
+ - Upload de fotos de perfil a Cloudinary
+
+ - Recuperación y reseteo de contraseña
+
+ - Verificación de email con tokens
+
+**Seguridad implementada:**
+
+ - Hashing de contraseñas con bcrypt
+
+ - Headers de seguridad (CSP, X-Frame-Options, etc.)
+
+ - Rate limiting en endpoints críticos
+
+ - Validación de archivos (JPG, PNG, WEBP máx 10MB)
+
+ - SSL/TLS requerido en producción
+
+
+Este servicio se comunica con los demás microservicios mediante JWT tokens en el header Authorization.
+
+
 Sistema de Headers
 
 
