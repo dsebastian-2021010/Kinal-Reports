@@ -4,31 +4,20 @@ const roleMiddleware = require('../../middlewares/role.middleware');
 
 async function routes(fastify) {
 
-  fastify.post(
-    '/',
-    {
-      preHandler: roleMiddleware(['ALUMNO','PROFESOR','ADMINISTRADOR']),
-      schema: schemas.createChatSchema
-    },
-    controller.createChat
-  );
+  fastify.post('/', {
+    preHandler: roleMiddleware(['ALUMNO', 'PROFESOR', 'ADMINISTRADOR']),
+    ...schemas.createChatSchema
+  }, controller.createChat);
 
-  fastify.get(
-    '/me',
-    {
-      preHandler: roleMiddleware(['ALUMNO','PROFESOR','ADMINISTRADOR'])
-    },
-    controller.getMyChats
-  );
+  fastify.get('/me', {
+    preHandler: roleMiddleware(['ALUMNO', 'PROFESOR', 'ADMINISTRADOR']),
+    ...schemas.getMyChatsSchema
+  }, controller.getMyChats);
 
-  fastify.post(
-    '/:id/message',
-    {
-      preHandler: roleMiddleware(['ALUMNO','PROFESOR','ADMINISTRADOR']),
-      schema: schemas.sendMessageSchema
-    },
-    controller.sendMessage
-  );
+  fastify.post('/:id/message', {
+    preHandler: roleMiddleware(['ALUMNO', 'PROFESOR', 'ADMINISTRADOR']),
+    ...schemas.sendMessageSchema
+  }, controller.sendMessage);
 }
 
 module.exports = routes;
