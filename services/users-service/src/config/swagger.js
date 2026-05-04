@@ -1,22 +1,47 @@
+const fp = require('fastify-plugin');
+const swagger = require('@fastify/swagger');
+const swaggerUI = require('@fastify/swagger-ui');
+
 async function swaggerConfig(fastify) {
-  await fastify.register(require('@fastify/swagger'), {
-    swagger: {
+  await fastify.register(swagger, {
+    openapi: {
       info: {
-        title: 'API Documentation',
-        description: 'Documentación del microservicio',
-        version: '1.0.0'
+        title: 'Servicio de Usuarios',
+        description: 'Documentación de la API para la gestión completa de usuarios en el sistema.',
+        version: '1.0.0',
+        contact: {
+          name: 'Equipo de Desarrollo Kinal Reports',
+          email: 'dsebastian-2021010@kinal.edu.gt'
+        }
       },
-      host: 'localhost',
-      schemes: ['http'],
-      consumes: ['application/json'],
-      produces: ['application/json']
-    }
+      servers: [
+        { url: 'http://localhost:3000', description: 'Desarrollo local' }
+      ],
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: 'http',
+            scheme: 'bearer',
+            bearerFormat: 'JWT'
+          }
+        }
+      },
+      security: [{ bearerAuth: [] }]
+    },
+    exposeRoute: true
   });
 
-  await fastify.register(require('@fastify/swagger-ui'), {
+  await fastify.register(swaggerUI, {
     routePrefix: '/docs',
-    exposeRoute: true
+    uiConfig: {
+      docExpansion: 'list',
+      deepLinking: true,
+      displayRequestDuration: true,
+      filter: true
+    },
+    staticCSP: true,
+    transformStaticCSP: header => header
   });
 }
 
-module.exports = swaggerConfig;
+module.exports = fp(swaggerConfig);

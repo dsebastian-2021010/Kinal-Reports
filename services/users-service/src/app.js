@@ -1,4 +1,5 @@
 const Fastify = require('fastify');
+const cors = require('@fastify/cors');
 const usersRoutes = require('./modules/users/users.routes');
 const swaggerConfig = require('./config/swagger');
 
@@ -7,35 +8,26 @@ const app = Fastify({
     level: 'info',
     transport: {
       target: 'pino-pretty',
-      options: {
-        translateTime: 'HH:MM:ss Z',
-        ignore: 'pid,hostname'
-      }
+      options: { translateTime: 'HH:MM:ss Z', ignore: 'pid,hostname' }
     }
   }
 });
 
+app.register(cors, {
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-role', 'x-user-id']
+});
 
-
-// Registrar Swagger
 app.register(swaggerConfig);
-
-// Registrar rutas
 app.register(usersRoutes, { prefix: '/users' });
 
-// Manejo de errores
 app.setErrorHandler((error, request, reply) => {
-  request.log.error({
-    message: error.message,
-    stack: error.stack
-  });
-
+  request.log.error(error);
   reply.status(error.statusCode || 500).send({
     status: 'error',
     message: error.message || 'Internal Server Error'
   });
-
-  
 });
 
 module.exports = app;
