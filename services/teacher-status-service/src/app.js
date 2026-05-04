@@ -1,23 +1,29 @@
 const Fastify = require('fastify');
+const cors = require('@fastify/cors');
 const teacherStatusRoutes = require('./modules/teacherStatus/teacherStatus.routes');
 const swaggerConfig = require('./config/swagger');
 
 const app = Fastify({
-  logger: true
+  logger: {
+    level: 'info',
+    transport: {
+      target: 'pino-pretty',
+      options: { translateTime: 'HH:MM:ss Z', ignore: 'pid,hostname' }
+    }
+  }
 });
 
-// Registrar Swagger
+app.register(cors, {
+  origin: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-role', 'x-user-id']
+});
+
 app.register(swaggerConfig);
-
-// Registrar rutas
-app.register(teacherStatusRoutes, { prefix: '/users' });
-
-
-app.register(teacherStatusRoutes, { prefix: '/status' });
+app.register(teacherStatusRoutes, { prefix: '/teacher-status' });
 
 app.setErrorHandler((error, request, reply) => {
   request.log.error(error);
-
   reply.status(error.statusCode || 500).send({
     status: 'error',
     message: error.message || 'Internal Server Error'
