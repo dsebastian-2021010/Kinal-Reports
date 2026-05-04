@@ -4,28 +4,23 @@ const roleMiddleware = require('../../middlewares/role.middleware');
 
 async function routes(fastify) {
 
-fastify.post(
-  '/',
-  {
+  fastify.post('/', {
     preHandler: roleMiddleware(['ADMINISTRADOR']),
-    schema: schemas.createSectionSchema
-  },
-  controller.createSection
-);
+    ...schemas.createSectionSchema
+  }, controller.createSection);
 
-fastify.get('/', controller.getSections);
+  fastify.get('/', {
+    ...schemas.getSectionsSchema
+  }, controller.getSections);
 
-fastify.get('/:id', controller.getSection);
+  fastify.get('/:id', {
+    ...schemas.getSectionSchema
+  }, controller.getSection);
 
-fastify.delete(
-  '/:id',
-  {
-    preHandler: roleMiddleware(['ADMINISTRADOR'])
-  },
-  controller.deleteSection
-);
-
+  fastify.delete('/:id', {
+    preHandler: roleMiddleware(['ADMINISTRADOR']),
+    ...schemas.deleteSectionSchema
+  }, controller.deleteSection);
 }
-
 
 module.exports = routes;
