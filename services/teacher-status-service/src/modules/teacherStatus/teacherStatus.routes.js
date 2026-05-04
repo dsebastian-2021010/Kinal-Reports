@@ -4,19 +4,18 @@ const roleMiddleware = require('../../middlewares/role.middleware');
 
 async function routes(fastify) {
 
-fastify.patch(
-  '/me',
-  {
-    preHandler: roleMiddleware(['PROFESOR'])
-  },
-  controller.updateStatus
-);
+  fastify.patch('/me', {
+    preHandler: roleMiddleware(['PROFESOR']),
+    ...schemas.updateStatusSchema
+  }, controller.updateStatus);
 
-fastify.get('/:teacherId', controller.getStatus);
+  fastify.get('/:teacherId', {
+    ...schemas.getStatusSchema
+  }, controller.getStatus);
 
-fastify.get('/', controller.getAll);
-
+  fastify.get('/', {
+    ...schemas.getAllStatusSchema
+  }, controller.getAll);
 }
-
 
 module.exports = routes;
