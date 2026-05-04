@@ -1,46 +1,40 @@
 const service = require('./events.service');
 
 const createEvent = async (request, reply) => {
-  const userId = request.headers['x-user-id'];
-
-  const event = await service.createEvent(
-    request.body,
-    userId
-  );
-
-  reply.code(201).send({
-    message: 'Event created',
-    data: event
-  });
+  try {
+    const userId = request.headers['x-user-id'];
+    const event = await service.createEvent(request.body, userId);
+    reply.code(201).send({ message: 'Event created', data: event });
+  } catch (error) {
+    reply.code(error.statusCode || 500).send({ message: error.message });
+  }
 };
 
 const getEvents = async (request, reply) => {
-  const events = await service.getEvents();
-
-  reply.send({
-    total: events.length,
-    data: events
-  });
+  try {
+    const events = await service.getEvents();
+    reply.send({ total: events.length, data: events });
+  } catch (error) {
+    reply.code(error.statusCode || 500).send({ message: error.message });
+  }
 };
 
 const getEvent = async (request, reply) => {
-  const event = await service.getEvent(request.params.id);
-
-  reply.send({ data: event });
+  try {
+    const event = await service.getEvent(request.params.id);
+    reply.send({ data: event });
+  } catch (error) {
+    reply.code(error.statusCode || 500).send({ message: error.message });
+  }
 };
 
 const deleteEvent = async (request, reply) => {
-  const event = await service.deleteEvent(request.params.id);
-
-  reply.send({
-    message: 'Event cancelled',
-    data: event
-  });
+  try {
+    const event = await service.deleteEvent(request.params.id);
+    reply.send({ message: 'Event deleted', data: event });
+  } catch (error) {
+    reply.code(error.statusCode || 500).send({ message: error.message });
+  }
 };
 
-module.exports = {
-  createEvent,
-  getEvents,
-  getEvent,
-  deleteEvent
-};
+module.exports = { createEvent, getEvents, getEvent, deleteEvent };
